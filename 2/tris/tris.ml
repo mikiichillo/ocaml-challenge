@@ -1,11 +1,7 @@
 let tris (a,b,c,d) =
-  if a = b then if b = c then true
-    else if b = d then true
-    else false
-  else if c = d then if c = a then true
-    else if c = b then true
-    else false
-  else false
+  let lista = [a;b;c;d] in 
+  List.exists(fun x -> List.length(List.filter((=) x) lista) >= 3) lista
+;;
 
   let hand () =
     Random.self_init ();

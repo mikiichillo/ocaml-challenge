@@ -15,4 +15,8 @@ let rndCard() = Card (rndNumber(), rndSuit())
 let rndHand() =
   (rndCard(), rndCard(), rndCard(), rndCard(), rndCard())
 
-let poker (a, b, c, d, e) = 
+let poker ((a:card), (b:card), (c:card), (d:card), (e:card)) = 
+  let cards = [a;b;c;d;e] in
+  let values = List.map (fun (Card (v, _)) -> v) cards in
+  let count v = List.length(List.filter((=) v) values ) in
+  List.exists ( fun v -> count v = 4) values

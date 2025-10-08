@@ -1,1 +1,1 @@
-let comp f g x = f(g x)
+let comp (f: 'b->'c) (g: 'a->'b) (x) = f(g x)
